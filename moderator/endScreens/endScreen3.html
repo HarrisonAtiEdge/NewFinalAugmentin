@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round1 Rules</title>
+    <link rel="stylesheet" href="../modstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="../worker.js"></script>
+    
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid rgb(255, 255, 255);
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            
+        }
+        /* Add CSS for scrollbar */
+        .ruleGGParentDiv {
+            width: 80%;
+            max-height: 60vh; /* Adjust height as needed */
+            overflow: auto;
+            border: 4px solid rgb(110, 32, 100);
+            padding: 0rem 2rem;
+        }
+
+        
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #5900ff #2C0052;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #000000;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #5900ff;
+    border-radius: 48px;
+    border: 3px solid #000000;
+  }
+
+    </style>
+</head>
+<body class="rulebackground" style="color: #f2f2f2; overflow: hidden;">
+    <audio id="clickSound" src="../sound/click.mp3"></audio>
+
+    <div style="width: 100%; display: flex; text-align: center; justify-content: center; margin-top: 3%;">
+        <div class="ruleGParentDiv" style="width: 80%;">
+            <h4 style="    padding: 1rem;
+            margin: 2rem 0; font-size: 45px; font-weight: 100;" >
+                Prescribing Information
+            </h4>
+        </div>
+    </div>
+
+    <div style="width: 100%; display: flex; text-align: left; justify-content: center; margin-bottom: 2rem; ">
+        <img src="../images/qr.webp" alt="" style="width: 65%;">
+        <!-- <div class="ruleGGParentDiv" >
+           
+
+            <div class="GDiv" >
+                <div class="nhDiv2">
+                    <p style="font-size: 18px; font-weight: 100; font-family: sans-serif;">
+                        Active Ingredient: Amoxicillin trihydrate – Potassium salt B.P. Indications: Upper respiratory tract infections (including ENT) e.g. recurrent tonsillitis, sinusitis, otitis media. Lower respiratory tract infections e.g. acute exacerbations of chronic bronchitis (AECB), (AECOPD), lobar and bronchopneumonia. Urinary tract infections e.g. cystitis, urethritis, pyelonephritis. Skin and soft tissue infections e.g. cellulitis, animal bites. Dental infections e.g. severe dental abscess with spreading cellulitis. Dosage and Administration: To minimise potential gastrointestinal intolerance, administer at the start of a meal. The absorption of AUGMENTIN is optimised when taken at the start of a meal. Treatment should not exceed 14 days without review. Therapy can be started parenterally and continued with an oral preparation. The usual recommended daily dosage is Lower dose: 28.6-51.4 mg/kg/day in 2 divided doses for mild to moderate infections (upper respiratory tract infections e.g. recurrent tonsillitis, lower respiratory infections and skin and soft tissue infections). Higher dose: 51.4-80 mg/kg/day in 2 divided doses for the treatment of more serious infections (upper respiratory tract infections e.g. otitis media and sinusitis, lower respiratory tract infections e.g. bronchopneumonia and urinary tract infections). No clinical data are available on doses above 51.4 mg/kg/day in children under 2 years.
+                        Children 2 years and over
+                    </p>
+                    <table>
+                        <tr>
+                            <td rowspan="2">Body weight <br>(kg)</td>
+                            <td colspan="2">Recommended Dose (mL every 12 hours)</td>
+                        </tr>
+                        <tr>
+                            <td>For Lower dose range<br>Recommended for infections such as skin and soft tissue and recurrent tonsillitis.</td>
+                            <td>For Higher dose range<br>Recommended for infections such as otitis media, sinusitis, lower respiratory tract infections and urinary tract infections.</td>
+                        </tr>
+                        <tr>
+                            <td>12 to 16</td>
+                            <td>2.5 ml</td>
+                            <td>5 ml</td>
+                        </tr>
+                        <tr>
+                            <td>17 to 26</td>
+                            <td>5 ml</td>
+                            <td>7.5 ml</td>
+                        </tr>
+                        <tr>
+                            <td>27 to 35</td>
+                            <td>7.5 ml</td>
+                            <td>10 ml</td>
+                        </tr>
+                        <tr>
+                            <td>36 to &lt;40</td>
+                            <td>10 ml</td>
+                            <td>12.5 ml</td>
+                        </tr>
+                    </table>
+                    <p style="font-size: 18px; font-weight: 100; font-family: sans-serif;">
+                        Children aged 2 months to under 2 years: See Full prescribing information for complete dosage table. Renal Impairment: No adjustment in dose is required in patients with creatinine clearance greater than 30 mL/min. AUGMENTIN suspension 457 mg/5 mL is not recommended in patients with a creatinine clearance of less than 30 mL/min. Hepatic Impairment; Administer with caution; monitor hepatic function at regular intervals. There is, as yet, insufficient evidence on which to base a dosage recommendation. Contraindications: AUGMENTIN is contra-indicated in patients with a history of hypersensitivity to beta-lactams, e.g. penicillins and cephalosporins and with a previous history of AUGMENTIN-associated jaundice/hepatic dysfunction. Warnings and Precautions: Before initiating therapy, careful enquiry should be made concerning previous hypersensitivity reactions to penicillins, cephalosporins or other allergens. Serious and occasionally fatal hypersensitivity reactions (including anaphylactoid and severe cutaneous adverse reactions) have been reported in patients on penicillin therapy. Hypersensitivity reactions can also progress to Kounis syndrome, a serious allergic reaction that can result in myocardial infarction.Presenting symptoms of such reactions can include chest pain occurring in association with an allergic reaction to amoxicillin-clavulanate. Drug-induced enterocolitis syndrome has been reported mainly in children receiving AUGMENTIN (see Adverse Reactions). Drug-induced enterocolitis syndrome is an allergic reaction with the leading symptom of protracted vomiting (1-4 hours after medicinal product administration) in the absence of allergic skin or respiratory symptoms. Further symptoms could comprise abdominal pain, lethargy, diarrhoea, hypotension or leucocytosis with neutrophilia. In severe cases, drug-induced enterocolitis syndrome can progress to shock. If an allergic reaction occurs, AUGMENTIN therapy must be discontinued and appropriate alternative therapy instituted. Serious anaphylactic reactions require immediate emergency treatment with adrenaline. Oxygen, intravenous (i.v.) steroids and airway management (including intubation) may also be required. AUGMENTIN should be avoided if infectious mononucleosis is suspected since the occurrence of a morbilliform rash has been associated with this condition following the use of amoxicillin. Prolonged use may also occasionally result in overgrowth of non-susceptible organisms. Pseudomembranous colitis has been reported with the use of antibiotics and may range in severity from mild to life-threatening. Therefore, it is important to consider its diagnosis in patients who develop diarrhoea during or after antibiotic use. If prolonged or significant diarrhoea occurs or the patient experiences abdominal cramps, treatment should be discontinued immediately and the patient investigated further. Abnormal prolongation of prothrombin time (increased INR) has been reported rarely in patients receiving AUGMENTIN and oral anticoagulants. Appropriate monitoring should be undertaken when anticoagulants are prescribed concurrently. Changes in liver function tests have been observed in some patients receiving AUGMENTIN. Cholestatic jaundice, which may be severe, but is usually reversible, has been reported rarely. In patients with renal impairment AUGMENTIN suspension 457 mg/5 mL is not recommended. In patients with reduced urine output, crystalluria has been observed very rarely, predominantly with parenteral therapy. During the administration of high doses of amoxicillin, it is advisable to maintain adequate fluid intake and urinary output in order to reduce the possibility of amoxicillin crystalluria. AUGMENTIN 457 mg/5ml suspensions contain 12.5 mg aspartame per 5 ml dose and therefore care should be taken in patients with phenylketonuria. Interactions: Concomitant use of probenecid is not recommended. Concomitant use with AUGMENTIN may result in increased and prolonged blood levels of amoxicillin but not of clavulanate. Concomitant use of allopurinol during treatment with amoxicillin can increase the likelihood of allergic skin reactions. In common with other antibiotics, AUGMENTIN may affect the gut flora, leading to lower oestrogen reabsorption and reduced efficacy of combined oral contraceptives. In patients receiving mycophenolate mofetil, reduction in pre-dose concentration of the active metabolite mycophenolic acid of approximately 50% has been reported following commencement of oral amoxicillin plus clavulanic acid. The change in pre-dose level may not accurately represent changes in overall MPA exposure. Penicillins may reduce the excretion of methotrexate causing a potential increase in toxicity. Pregnancy and Lactation: Use should be avoided in pregnancy, especially during the first trimester, unless considered essential by the physician. AUGMENTIN may be administered during the period of lactation. Adverse Reactions: Very common: Diarrhoea. Common: mucocutaneous candidiasis, Nausea, vomiting, Diarrhoea, nausea, vomiting. Uncommon; Dizziness, headache, indigestion, a moderate rise in AST and/or ALT has been noted in patients treated with beta-lactam class antibiotics, but the significance of these findings is unknown. Skin rash, pruritus, urticaria. Rare; Reversible leucopenia (including neutropenia) and thrombocytopenia, Erythema multiforme. Very rare; Reversible agranulocytosis and haemolytic anaemia. Prolongation of bleeding time and prothrombin time, Angioneurotic oedema, anaphylaxis, serum sickness-like syndrome, hypersensitivity vasculitis, Kounis syndrome, reversible hyperactivity, aseptic meningitis, convulsions. Convulsions may occur in patients with impaired renal function or in those receiving high doses. Antibiotic-associated colitis (including pseudomembranous colitis and haemorrhagic colitis), drug-induced enterocolitis syndrome, Black hairy tongue, superficial tooth discolouration has been reported very rarely in children. Good oral hygiene may help to prevent tooth discolouration as it can usually be removed by brushing. Hepatitis and cholestatic jaundice. These events have been noted with other penicillins and cephalosporins. Hepatic events have been reported predominantly in males and elderly patients and may be associated with prolonged treatment. These events have been very rarely reported in children. Stevens-Johnson syndrome, toxic epidermal necrolysis, bullous exfoliative-dermatitis, acute generalised exanthemous pustulosis (AGEP), drug reaction with eosinophilia and systemic symptoms (DRESS), and symmetrical drug-related intertriginous and flexural exanthema (SDRIFE) (baboon syndrome), Linear IgA disease, Interstitial nephritis and crystalluria. Overdose: Gastrointestinal symptoms and disturbance of the fluid and electrolyte balances may be evident. Gastrointestinal symptoms may be treated symptomatically with attention to the water electrolyte balance. Abbreviated Prescribing Information released in developed from GDS 29/IPI17, dated 07th September 2023. Please read full prescribing information prior to administration, available from: GlaxoSmithKline, 35 Dockyard Road West Wharf Karachi, Pakistan.
+                    </p>
+
+                </div>                        
+            </div>
+        </div> -->
+    </div>    
+   
+    <div class="buttonsoundalign" style="bottom: 55%;">
+        <button onclick="back()" class="soundleft">back</button>
+        <button id="volumeup" class="soundright" onclick="backSound()" style="display: block;">  <i class="fas fa-volume-xmark"></i></button>
+        <button id="volumedown" class="soundright" onclick="backSound2()" style="display: none;">  <i class="fas fa-volume-up"></i></button>
+    </div>
+
+    <div class="forBtn">
+        <button id="result-btn" class="btnBackground">End Game</button>
+    </div>
+
+    <script>
+        function back() {
+            window.location.href='endScreen2.html';
+        }
+    </script>
+    <script src="../../moderator/sound.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('clickSound');
+            var startButtons = document.querySelectorAll('.btnBackground');
+            startButtons.forEach(function(startButton) {
+                startButton.addEventListener('click', function(event) {
+                    audio.play();
+                    event.preventDefault();
+                    setTimeout(function() {
+                        window.location.href = '../main.html';
+                    }, 500); 
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round1 Rules</title>
+    <link rel="stylesheet" href="../modstyle.css">
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="../worker.js"></script>
+   
+</head>
+<body class="rulebackground">
+    <audio id="clickSound" src="../sound/click.mp3"></audio>
+
+    
+        <div class="ruleGGParentDiv" >
+            <div class="ruleGParentDiv">
+                <h2 class="GH">
+                    AUGMENTIN RUSH</h2>
+            </div>
+
+            <div class="GDiv">
+                <div class="hDiv">
+                    <h1 class="hS">1. Only the team leader can press the buzzer. Please select your table s team leader right now.</h1>
+                    <h1  class="hS">2. Once a team buzzes, they have 15 seconds to provide an answer after discussing with team.</h1>
+                    <h1  class="hS">3.  Any team answering correctly for two consecutive questions will not be eligible for the third question. </h1>
+                    <h1  class="hS">4. After buzzing, the team leader must answer alone. </h1>
+                    <h1  class="hS">5. Teams earn 10 points for correct answer. </h1>
+                    <h1  class="hS">6. Wrong Answer means 0 point. </h1>
+                </div>                        
+            </div>
+        </div>
+    </div>
+   
+    <div class="buttonsoundalign" style="bottom: 55%;">
+        
+        <button onclick="back()" class="soundleft" >back</button>
+        
+        <button id="volumeup" class="soundright" onclick="backSound()" style="display: block;">  <i class="fas fa-volume-xmark"></i></button>
+        <button id="volumedown" class="soundright" onclick="backSound2()" style="display: none;">  <i class="fas fa-volume-up"></i></button>
+        
+    </div>
+ 
+
+
+    <div class="forBtn">
+        <button id="result-btn" class="btnBackground">Start Game</button>
+    </div>
+
+    <script>
+   
+  
+    function back() {
+        window.location.href='../main.html';
+    }
+    </script>
+    <script src="../../moderator/sound.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+       
+           var audio = document.getElementById('clickSound');
+       
+         
+           var startButtons = document.querySelectorAll('.btnBackground');
+       
+           startButtons.forEach(function(startButton) {
+               startButton.addEventListener('click', function(event) {
+                  
+                   audio.play();
+                   
+                   event.preventDefault();
+                  
+                   setTimeout(function() {
+                       window.location.href = 'Game1.html';
+                   }, 500); 
+               });
+           });
+       });
+       
+       </script>
+</body>
+</html>

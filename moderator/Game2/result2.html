@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game1 Result</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../modstyle.css">
+        
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="../worker.js"></script>
+    <style>
+        /* General Reset */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Background */
+        body {
+            background: url('../images/plain-bg.webp') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            font-family: "Poetsen One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* Main Container */
+        .main {
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Navigation Bar */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 2% 5%;
+        }
+
+        .nav img {
+            width: 12%;
+        }
+
+        /* Result Div */
+        .resultDiv {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            position: relative;
+        }
+
+        .resultDiv img {
+            width: 70%;
+            height: auto;
+        }
+
+        
+        /* New Effect Styling */
+        .con {
+            position: absolute;
+            top: 50%;
+            left: 56%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 70%;
+        }
+
+        /* List Container */
+        .list-container {
+            margin: 2% 0;
+        }
+
+        .skew-effect {
+            display: inline-block;
+            height: 3.5rem; /* Equivalent to 50px */
+            width: 2.9%; /* Equivalent to 40px assuming 1366px screen width */
+            transform: skew(30deg);
+        }
+
+        .filler {
+            display: inline-block;
+            background-color: #974ab6;
+            height: 3.5rem; /* Equivalent to 50px */
+            width: 0.7%; /* Equivalent to 10px assuming 1366px screen width */
+            position: relative;
+            left: -11.7%; /* Equivalent to -160px assuming 1366px screen width */
+        }
+
+        .rank-container {
+            background-color: #974ab6;
+            width: 23%; /* Equivalent to 250px assuming 1366px screen width */
+            position: relative;
+            left: -11.7%; /* Equivalent to -160px assuming 1366px screen width */
+        }
+
+        .rank, .rank1 {
+            display: inline-block;
+            position: relative;
+            left: -25.6%; /* Equivalent to -350px assuming 1366px screen width */
+            top: -1rem; /* Equivalent to -16px */
+            color: #ffffff;
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 1.5rem; /* Equivalent to 24px */
+        }
+
+        .name-container, .name-container1 {
+            display: inline-block;
+            background-color: white;
+            height: 0;
+            width: 0;
+            animation-name: extender;
+            animation-duration: 1.5s;
+            animation-fill-mode: forwards;
+            position: relative;
+            left: -6%; /* Equivalent to -18px assuming 1366px screen width */
+        }
+
+        #first-place > .name-container, 
+        #first-place > .name-container1 {
+            animation-delay: 0.85s;
+        }
+
+        #second-place > .name-container,
+        #second-place > .name-container1 {
+            animation-delay: 0.825s;
+        }
+
+        #third-place > .name-container, 
+        #third-place > .name-container1 {
+            animation-delay: 0.8s;
+        }
+
+        #fourth-place > .name-container, 
+        #fourth-place > .name-container1 {
+            animation-delay: 0.775s;
+        }
+
+        #fifth-place > .name-container, 
+        #fifth-place > .name-container1 {
+            animation-delay: 0.75s;
+        }
+
+        .participant-name {
+            display: inline-block;
+            transform: skew(0deg, 0deg);
+            text-transform: uppercase;
+            font-weight: 800;
+            color: black;
+            position: relative;
+            top: -1rem; /* Equivalent to -16px */
+            left: -22.7%; /* Equivalent to -310px assuming 1366px screen width */
+            font-size: 1.5rem; /* Equivalent to 24px */
+            opacity: 0;
+            animation-delay: 2s;
+            animation-name: namefadein;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        .participant-name1 {
+            display: inline-block;
+            transform: skew(0deg, 0deg);
+            text-transform: uppercase;
+            font-weight: 800;
+            color: black;
+            position: relative;
+            top: -1rem; /* Equivalent to -16px */
+            left: -21%; /* Equivalent to -260px assuming 1366px screen width */
+            font-size: 1.5rem; /* Equivalent to 24px */
+            opacity: 0;
+            animation-delay: 2s;
+            animation-name: namefadein;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        @media only screen and (max-width: 1366px) {
+            .participant-name1 {
+                left: -19%;
+            }
+
+            .participant-name {
+                left: -23%;
+            }
+        }
+
+        /* Popper Animation */
+        @keyframes popper {
+            from { top: 700px; }
+            to { top: 0; }
+        }
+
+        @keyframes popper2 {
+            from { top: 700px; }
+            to { top: -10px; }
+        }
+
+        @keyframes extender {
+            from {
+                width: 0px;
+                height: 3.5rem; /* Equivalent to 50px */
+            }
+            to {
+                width: 26%; /* Equivalent to 300px assuming 1366px screen width */
+                height: 3.5rem; /* Equivalent to 50px */
+                border: 1px solid #c3c3c3;
+            }
+        }
+
+        /* Name Fade-in Animation */
+        @keyframes namefadein {
+            from { opacity: 0.2; }
+            to { opacity: 1; }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="main">  
+        <div class="nav">
+            <img src="../images/GSK Logo.png" alt="">
+            <img src="../images/Augmentin Logo.png" alt="">
+        </div>
+
+ <!-- FOR Sound👇 and Back -->
+ <div class="buttonsoundalign"  style="bottom: 50%;">
+        
+    <button onclick="back()" class="soundleft" >back</button>
+    
+    <button id="volumeup" class="soundright" onclick="backSound()" style="display: block;">  <i class="fas fa-volume-xmark"></i></button>
+    <button id="volumedown" class="soundright" onclick="backSound2()" style="display: none;">  <i class="fas fa-volume-up"></i></button>
+    
+</div>
+<!-- FOR Sound☝and Back  -->
+
+        <div class="resultDiv">
+            <img src="../images/Board.png" alt="">
+
+            <div class="con" style="width: 70%; text-align: center;">
+                <div class="list-container" id="first-place" style="width: 100%;">
+                    
+                    <div class="skew-effect name-container1" ></div>
+                    <div class="participant-name1" >Tables</div>
+                    <div class="skew-effect rank-container" ></div>
+                    <div class="skew-effect filler"  ></div>
+                    <div class="skew-effect filler" ></div>
+                    <div class="rank1"  >Scores</div>
+                    
+                </div>
+                
+                <!-- Add the div with id="results" here -->
+                <div class="list-container" id="results" style="text-align: center;">
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="forNextBtn" style="width: 100%; height: auto; position: relative; text-align: center;">
+            <a href="./main.html">
+                <img src="./images/Option Board.png" style="display: block;" alt="">
+                <div class="text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <p>NEXT</p>
+                </div>
+            </a>
+        </div> -->
+
+        <div class="forBtn">
+            <button id="showListButton" class="btnBackground " onclick="changeScreen()" >Main Menu</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const resultDiv = document.getElementById('results');
+            
+            // Retrieve data from localStorage and filter for 'Table X' keys
+            let scores = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                let key = localStorage.key(i);
+                if (key.startsWith('Game2 Table ')) {
+                    let score = parseInt(localStorage.getItem(key));
+                    // Extract the table number
+                    let tableNumber = key.replace('Game2 Table ', 'Table ');
+                    scores.push({ table: tableNumber, score: score });
+                }
+            }
+
+            // Sort scores in descending order
+            scores.sort((a, b) => b.score - a.score);
+            
+            // Take only the top 5 scores
+            scores = scores.slice(0, 5);
+            
+            // Create and append HTML elements for each score
+            scores.forEach((item, index) => {
+                let listItem = document.createElement('div');
+                listItem.className = 'list-container';
+                
+                listItem.innerHTML = `
+                    <div class="skew-effect name-container"></div>
+                    <div class="participant-name1">${item.table}</div>
+
+                    <div class="skew-effect rank-container"></div>
+                    <div class="skew-effect filler"></div>
+                    <div class="skew-effect filler"></div>
+                    <div class="rank">${item.score}</div>
+                `;
+                
+                resultDiv.appendChild(listItem);
+            });
+        });
+
+        function changeScreen(){
+            window.location.href = "../main.html"
+        }  
+        
+        function back(){
+            window.location.href = "game2QuestionScreens.html"
+        }
+
+
+
+
+    </script>
+
+<script src="../../moderator/sound.js"></script>
+
+    
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../modstyle.css">
+  <link rel="stylesheet" href="../menu2.css">
+  <link rel="stylesheet" href="../timer.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Game 3 Pic</title>
+  <script src="../worker.js"></script>
+
+  <style>
+    .football_anim {
+      transition: transform 3s ease;
+      /* Define a CSS transition for the transform property */
+    }
+
+    
+.questionConatiner{
+  /* border: solid 2px red; */
+  width: 80%;
+  margin-top: -36px;
+}
+.banner{
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem  5rem 2rem 5rem;
+
+}
+.newNext-backbuttonalign{
+  bottom: 15%;
+}
+#sound-controls {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#backBtnAlignment{
+  position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+  </style>
+
+</head>
+
+<body class="mainbackgroundwordSearch" style="overflow: hidden; bottom: 50%;">
+  <audio id="clickSound" src="../sound/click.mp3"></audio>
+  <audio id="timerSound" src="../sound/Quiz Show Countdown Short.wav" preload="auto"></audio>
+  <!-- <div class="banner">
+    <div class="gskalign">
+      <img class="gsklogo" src="../images/GSK Logo.png">
+    </div>
+    <div class="augmentinalign">
+      <img class="augmentinlogo" src="../images/Augmentin Logo.png">
+    </div>
+  </div> -->
+
+  <!-- FOR Sound👇 and Back -->
+  <aside id="backBtnAlignment" >
+
+    <button onclick="back()" class="soundleft">back</button>
+
+   </aside>
+
+   <aside id="sound-controls">
+    <button id="volumeup" class="soundright" onclick="backSound()" style="display: block;"> 
+        <i class="fas fa-volume-up"></i>
+    </button>
+    <button id="volumedown" class="soundright" onclick="backSound2()" style="display: block;"> 
+        <i class="fas fa-volume-xmark"></i>
+    </button>
+</aside>
+  <!-- FOR Sound☝and Back  -->
+  <div class="maincontainer" style="justify-content: center;">
+    <!-- <div class="tablebuzzer">
+      <div id="left" class="userList" style="width: 100%; height: auto; position: relative; text-align: center;">
+        <img style="display: block;" class="buzzerpic" src="../images/newBuzzerBoard.png">
+        <div style="position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%);">
+
+          <ul id="list" class="userListContent">
+          </ul>
+        </div>
+
+        <div class="forBtn">
+          <button id="showListButton" class="btnBackground ">Start Buzzer</button>
+           <button class="btnBackground " id="submitSelection" style="display: none;">Play Game 2</button> 
+        </div>
+
+      </div>
+    </div> -->
+
+    <div class="questionConatiner">
+      <div style="width: 100%; height: auto; position: relative; text-align: center;">
+        <!-- <img style="display: block;" class="questionbackimage" src="../images/Board.png" alt="" srcset="">
+        <img style="    display: block;
+        position: absolute;
+        top: 15%;
+        width: 78%;
+        left: 11%;" class="questionbackimage" src="../images/misMatch.jpg" alt="" srcset="">
+         -->
+        <!-- <div id="right" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); ">
+          <div id="question" style="background-image: url('../images/misMatch.jpg'); min-height: 50vh;">
+            
+            
+          </div>
+          
+        
+          
+        </div>   -->
+      </div>   
+      <div class="newNext-backbuttonalign">
+        <button type="submit" class="btnBackground " onclick="openPopup()">Main Menu</button>
+        <button id="startGame3" class="btnBackground ">Start Game 3</button>
+       
+        <!-- pop-up  -->
+        <div class="container " style="width: 70%;">
+
+          <div class="popup" id="popup" style="top: -18rem; width: 50%;">
+            <button style="color: black;" type="button" onclick="closePopup()">X</button>
+
+            <div style=" margin-top: 20px; ">
+
+              <div style="text-align: center;">
+                <!-- <img src="images/icons/reset-dark.gif" alt="reset-dark-icon" width="70px">
+                    <a href="">Reset</a> -->
+                    <button class="menu-btn" onclick="resetScore();">Reset Score</button>
+              </div>
+              <div style="text-align: center;">
+                <!-- <img src="images/icons/reset-dark.gif" alt="reset-dark-icon" width="70px">
+                  <a href="">Reset</a> -->
+                <a href="/moderator/main.html">
+                  <button class="menu-btn">Main Menu</button>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- pop-up  -->
+      </div>
+
+    </div>
+<!-- 
+    <div class="timerdiv">
+      <div id="left" class="userList" style=" width: 100%; height: auto; position: relative; text-align: center;">
+        <img style="display: block; " class="timerpic" src="../images/timer_container.png">
+          <div style="position: absolute; top: 39%; left: 52%; transform: translate(-50%, -50%);">
+          <div class="TimeHolder">
+            <div class="Numbers">
+
+              <div class="NumberHolder S1">
+                <span class="d1"></span>
+                <span class="d2"></span>
+                <span class="d3"></span>
+                <span class="d4"></span>
+                <span class="d5"></span>
+                <span class="d6"></span>
+                <span class="d7"></span>
+              </div>
+              <div class="NumberHolder S2">
+                <span class="d1"></span>
+                <span class="d2"></span>
+                <span class="d3"></span>
+                <span class="d4"></span>
+                <span class="d5"></span>
+                <span class="d6"></span>
+                <span class="d7"></span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="controllers" style="margin-top: 0px; display: inline-flex;">
+          <button class="pause-timer btnBackground">Pause</button>
+          <button class="play-timer btnBackground">Play&nbsp;&nbsp;&nbsp;</button>
+          <button class="reset-timer btnBackground">Reset</button>
+        </div>
+
+        <div id="football_anim_object" class="football_anim"
+          style="position: absolute; z-index: -10; width: 40%; top: 150%; left: 15%; transform: translate(-20%, -50%);">
+          <img style="width: 20vw; height: 45vh;" src="../images/Ladka1.gif" alt="football_animation" srcset="">
+        </div>
+
+      </div>
+    </div> -->
+  </div>
+
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+
+
+    var list = document.getElementById("list");
+    var buttons = document.querySelectorAll("#tables-con button");
+    var limit = 5;
+    var count = 0;
+    var buzzerStarted = false;
+    const socket = io();
+    var changeStaredText = document.getElementById("showListButton")
+    document.getElementById("showListButton").addEventListener("click", function () {
+      buzzerStarted = true;
+      showListButton.style.display="none";
+      submitSelection.style.display="block";
+    });
+
+    // var showNextBtn = document.getElementById("nextQuestion");
+    // showNextBtn.style.display = 'none';
+
+    socket.on('login', (data) => {
+      if (buzzerStarted && count < limit) {
+        var newItem = document.createElement("li");
+        newItem.textContent = `${data.username}`;
+        newItem.style.marginBottom = "20px";
+        newItem.style.boxShadow = "0px 1px 2px rgba(221,169,243,0.5), 0px 2px 4px rgba(221,169,243,0.5), 0px 4px 8px rgba(221,169,243,0.5), 0px 8px 16px rgba(221,169,243,0.5)";
+        list.appendChild(newItem);
+        count++;
+      }
+    });
+
+    // Limit selection to 3 items
+    list.addEventListener("click", function (event) {
+      if (event.target.tagName === "LI") {
+        var selectedItems = list.querySelectorAll(".selected");
+        if (event.target.classList.contains("selected")) {
+          event.target.classList.remove("selected");
+        } else if (selectedItems.length < 3) {
+          event.target.classList.add("selected");
+        } else {
+          alert("You can only select up to 3 items.");
+        }
+      }
+    });
+
+    var selectedValues = [];
+
+   
+
+    document.getElementById("showListButton").addEventListener("click", function () {
+      let list = document.getElementById("list");
+      list.innerHTML = "";
+      document.getElementById("list").style.display = "block";
+  
+      
+    });
+
+  </script>
+
+  <script>
+    // Your JavaScript code remains unchanged
+
+    // Add event listener for the "Back to Question" button
+    // document.getElementById("backToQuestion").addEventListener("click", backToQuestion);
+
+    // Define the backToQuestion function
+    document.getElementById("submitSelection").addEventListener("click", function () {
+      selectedValues = Array.from(list.querySelectorAll(".selected")).map(item => item.textContent);
+
+      if (selectedValues.length !== 3) {
+        alert("Please select exactly 3 items.");
+
+      } else {
+        localStorage.setItem('selectedValues', JSON.stringify(selectedValues));
+        
+        window.location.href="game3QuestionScreens.html";
+      }
+
+      showNextBtn.style.display = 'block';
+    });
+
+    function back() {
+      window.location.href = 'rule3.html';
+    }
+
+  </script>
+
+   <!-- JavaScript for popup menu -->
+   <script>
+    let popup = document.getElementById('popup')
+
+    function openPopup() {
+      popup.classList.add('open-popup')
+
+    }
+
+    function closePopup() {
+      popup.classList.remove('open-popup')
+    }
+    function resetScore() {
+    const keysToRemove = [];
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key.startsWith("Game3 Table")) {
+            keysToRemove.push(key);
+        }
+    }
+
+    // Remove the collected keys
+    for (const key of keysToRemove) {
+        localStorage.removeItem(key);
+    }
+}
+var startGame3 = document.getElementById("startGame3");
+startGame3.addEventListener('click' , function () {
+    window.location.href= "game3QuestionScreens.html";
+});
+    
+  </script>
+
+
+
+  <script src="../timer2.js"></script>
+  <script src="../sound.js"></script>
+
+
+
+
+</body>
+
+</html>

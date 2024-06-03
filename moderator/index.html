@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Screen</title>
+   <script src="worker.js"></script>
+   <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        @property --angle {
+            syntax: '<angle>';
+            initial-value: 90deg;
+            inherits: true;
+        }
+
+        @property --gradX {
+            syntax: '<percentage>';
+            initial-value: 50%;
+            inherits: true;
+        }
+
+        @property --gradY {
+            syntax: '<percentage>';
+            initial-value: 0%;
+            inherits: true;
+        }
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        p {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        :root {
+            --d: 2500ms;
+            --angle: 90deg;
+            --gradX: 100%;
+            --gradY: 50%;
+            --c1: #786190;
+            --c2: rgba(0, 0, 0, 0.1);
+        }
+
+        .wrapper {
+            min-width: min(16rem, 100%);
+            margin-top: 19rem;
+        }
+
+        .box {
+            font-size: 3vw;
+            margin: max(1rem, 3vw);
+            border: 0.2rem solid;
+            padding: 1vw;
+            background-color: rgb(27, 0, 53);
+            border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+            animation: borderRotate var(--d) linear infinite forwards;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        @keyframes borderRotate {
+            100% {
+                --angle: 420deg;
+            }
+        }
+
+        a {
+            text-decoration: none !important;
+            color: aliceblue;
+            font-weight: 500;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            background-image: url('./images/Augmentrix-Game-New-3-copy.webp');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: 100% 100%;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        h1.title,
+        .footer-copyright a {
+            font-family: 'Architects Daughter', cursive;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        /* start welcome animation */
+
+        .welcome .splash {
+            height: 0px;
+            padding: 0px;
+            border: 130em solid black;
+            position: fixed;
+            left: 50%;
+            top: 100%;
+            display: block;
+            box-sizing: initial;
+            overflow: hidden;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: puff 0.5s 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, borderRadius 0.2s 2.3s linear forwards;
+        }
+
+        .welcome .wrapper {
+            position: absolute;
+        }
+
+        .welcome #welcome {
+            width: 500px; /* Increased width */
+            height: 500px; /* Increased height */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            overflow: hidden;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            animation: init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, moveDown 1s 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards, moveUp 1s 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, materia 0.5s 2.7s cubic-bezier(0.86, 0, 0.07, 1) forwards, hide 2s 2.9s ease forwards;
+            background-image: url('../moderator/images/football_logo-removebg-preview.png');
+            background-size: cover; /* Directly scale background image */
+            background-position: center;
+        }
+
+        .welcome header,
+        .welcome a.btn {
+            opacity: 0;
+            animation: moveIn 2s 3.1s ease forwards;
+        }
+
+        @keyframes init {
+            0% {
+                width: 0px;
+                height: 0px;
+            }
+            100% {
+                width: 56px;
+                height: 56px;
+                margin-top: 0px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes puff {
+            0% {
+                top: 100%;
+                height: 0px;
+                padding: 0px;
+            }
+            100% {
+                top: 50%;
+                height: 100%;
+                padding: 0px 100%;
+            }
+        }
+
+        @keyframes borderRadius {
+            0% {
+                border-radius: 50%;
+            }
+            100% {
+                border-radius: 0px;
+            }
+        }
+
+        @keyframes moveDown {
+            0% {
+                top: 50%;
+            }
+            50% {
+                top: 40%;
+            }
+            100% {
+                top: 100%;
+            }
+        }
+
+        @keyframes moveUp {
+            0% {
+                background:#E8B6FD;
+                top: 100%;
+            }
+            50% {
+                top: 40%;
+            }
+            100% {
+                top: 50%;
+                background-image: url('../moderator/images/football_logo-removebg-preview.png');
+                background-size: cover;
+                background-position: center;
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        @keyframes materia {
+            0% {
+                background-image: url('../moderator/images/football_logo-removebg-preview.png');
+                background-size: cover;
+                background-position: center;
+                width: 200px;
+                height: 200px;
+            }
+            50% {
+                background-image: url('../moderator/images/football_logo-removebg-preview.png');
+                background-size: cover;
+                background-position: center;
+                top: 26px;
+                width: 200px;
+                height: 200px;
+            }
+            100% {
+                /* background: #70016b; */
+                width: 100%;
+                height: 64px;
+                border-radius: 0px;
+                top: 26px;
+            }
+        }
+
+        @keyframes moveIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes hide {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="welcome">
+    <div id="splash-overlay" class="splash"></div>
+    <div id="welcome" class="z-depth-4"></div>
+    <div class="wrapper">
+        <a href="main.html" id="startButton">
+            <div class="box">
+                <p>START</p>
+            </div>
+        </a>
+    </div>
+
+    <audio id="clickSound" src="./sound/click.mp3"></audio>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const splash = document.querySelector('.splash');
+            const wrapper = document.querySelector('.wrapper');
+            const startButton = document.getElementById('startButton');
+
+            // Initially hide the wrapper
+            wrapper.style.display = 'none';
+
+            splash.addEventListener('animationend', function() {
+                setTimeout(function() {
+                    wrapper.style.display = 'block';
+                    wrapper.style.position = 'absolute';
+                    wrapper.style.left = '50%';
+                    wrapper.style.top = '30%';
+                    wrapper.style.transform = 'translate(-50%, -50%)';
+                }, 10); // Adjust the delay as needed
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            
+        });    
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the audio element
+            var audio = document.getElementById('clickSound');
+
+            // Get the start button link
+            var startButton = document.getElementById('startButton');
+
+            // Add click event listener to the start button
+            startButton.addEventListener('click', function(event) {
+                // Prevent the default action to avoid immediate navigation
+                event.preventDefault();
+
+                // Play the sound
+                audio.play();
+
+                // Delay the navigation to allow the sound to play
+                setTimeout(function() {
+                    window.location.href = startButton.href;
+                }, 500); // Adjust the delay time as needed
+            });
+        });
+    </script>
+</body>
+</html>

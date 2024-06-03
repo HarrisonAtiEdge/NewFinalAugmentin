@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../modstyle.css">
+    <link rel="stylesheet" href="../timer.css">
+    <link rel="stylesheet" href="../menu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>New Game for Augmentin</title>
+    <script src="../worker.js"></script>
+    
+    <style>
+       .football_anim {
+    transition: transform 3s ease; /* Define a CSS transition for the transform property */
+  }
+/* Add this CSS to style the dropdown */
+.inputBox {
+        position: relative;
+        width: 100%;
+      }
+
+      .inputBox select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        /* border: 1px solid #ccc; */
+        border: none;
+        color: white;
+        border-radius: 4px;
+        background-color: #000000;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+
+      .inputBox select:focus {
+        border-color: hsl(304, 100%, 67%);
+      }
+      .dropdown {
+        background-color: #ffeba7;
+        cursor: pointer;
+        color: #102770;
+        box-shadow: 0 12px 35px 0 rgba(255, 235, 167, 0.15);
+      }
+      .dOption {
+        background-color: #000000;
+        color: white;
+        width: 100%;
+        height: 10px;
+        font-size: 20px;
+        font-weight: 200;
+        font-family: Arial, sans-serif;
+      }
+
+      .dOption1 {
+        background-color: #1b1b1b;
+        color: white;
+        width: 100%;
+        height: 10px;
+        font-size: 20px;
+        font-weight: 200;
+        font-family: Arial, sans-serif;
+      }
+      .dOption:hover {
+        background-color: #5900FF;
+      }
+      .dOption1:hover {
+        background-color:#5900FF;
+      }
+
+      ::selection {
+        background-color: #f8d9e3;
+        color: #000000;
+      }
+
+
+.inputBox{
+  background-color: #000000;
+  color: white;
+      box-shadow: rgba(221, 169, 243, 0.5) 0px 1px 2px, rgba(221, 169, 243, 0.5) 0px 2px 4px, rgba(221, 169, 243, 0.5) 0px 4px 8px, rgba(221, 169, 243, 0.5) 0px 8px 16px;
+}
+
+li{
+    box-shadow: rgba(221, 169, 243, 0.5) 0px 1px 2px, rgba(221, 169, 243, 0.5) 0px 2px 4px, rgba(221, 169, 243, 0.5) 0px 4px 8px, rgba(221, 169, 243, 0.5) 0px 8px 16px;
+}
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #5900ff #000000;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #000000;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #5900ff;
+    border-radius: 48px;
+    border: 3px solid #000000;
+  }
+
+  .dOption1 ::selection{
+    background-color: #ff427e;
+   color: #ff427e;
+  }
+  .dOption1 ::selection{
+    background-color: #ff427e;
+   color: #ff427e;
+  }
+
+
+
+#list1{
+    position: relative;
+  display: inline-block;
+}
+
+
+    </style>
+
+  </head>
+  <body class="mainbackground" style="overflow: hidden;">
+    <audio id="clickSound" src="../sound/click.mp3"></audio>
+      <div class="banner">
+        <div class="gskalign">
+          <img class="gsklogo" src="../images/GSK Logo.png">
+        </div>
+        <div class="augmentinalign">
+          <img class="augmentinlogo" src="../images/Augmentin Logo.png">
+        </div>
+      </div>
+
+   <!-- FOR Sound👇 and Back -->
+   <div class="buttonsoundalign">
+        
+    <button onclick="back()" class="soundleft" >back</button>
+    
+    <button id="volumeup" class="soundright" onclick="backSound()" style="display: block;">  <i class="fas fa-volume-up"></i></button>
+    <button id="volumedown" class="soundright" onclick="backSound2()" style="display: block;">  <i class="fas fa-volume-xmark"></i></button>
+    
+</div>
+<!-- FOR Sound☝and Back  -->
+
+
+  <div class="maincontainer" style="justify-content: center;">
+        <div class="tablebuzzer">
+          <div id="left" class="userList"  style="width: 100%; height: auto; position: relative; text-align: center;">
+            <img style="display: block;" class="buzzerpic" src="../images/newBuzzerBoard.png">
+            <!-- <h2>Top 10 Buzzer Winners</h2> -->
+            <div class="dropNList" style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); margin-top: 36%;">
+              
+                <div class="content">
+                    <!-- <h2>Select Team</h2> -->
+                    <form class="form" id="loginForm">
+                      <div class="inputBox">
+                        <!-- Removed input field for username -->
+                        <!-- <label htmlFor="choose-topic" class="text-md">Select Team:</label> -->
+                        <select
+                          id="userSelect"
+                          class="contact--input text-md dropdown"
+                          multiple
+                        >
+                          <option class="dOption" value="Table 1">Table 1</option>
+                          <option class="dOption1" value="Table 2">Table 2</option>
+                          <option class="dOption" value="Table 3">Table 3</option>
+                          <option class="dOption1" value="Table 4">Table 4</option>
+                          <option class="dOption" value="Table 5">Table 5</option>
+                          <option class="dOption1" value="Table 6">Table 6</option>
+                          <option class="dOption" value="Table 7">Table 7</option>
+                          <option class="dOption1" value="Table 8">Table 8</option>
+                          <option class="dOption" value="Table 9">Table 9</option>
+                          <option class="dOption1" value="Table 10">Table 10</option>
+                          <option class="dOption" value="Table 11">Table 11</option>
+                          <option class="dOption1" value="Table 12">Table 12</option>
+                          <option class="dOption" value="Table 13">Table 13</option>
+                          <option class="dOption1" value="Table 14">Table 14</option>
+                          <option class="dOption" value="Table 15">Table 15</option>
+                          <option class="dOption1" value="Table 16">Table 16</option>
+                          <option class="dOption" value="Table 17">Table 17</option>
+                          <option class="dOption1" value="Table 18">Table 18</option>
+                          <option class="dOption" value="Table 19">Table 19</option>
+                          <option class="dOption1" value="Table 20">Table 20</option>
+                        </select>
+                      </div>
+                      <!-- <div class="inputBox">
+                        <button
+                          type="submit"
+                          id="btn-submit"
+                          class="btn"
+                          value="Submit"
+                        >
+                          Submit
+                        </button>
+                      </div> -->
+                    </form>
+                  </div>
+                  <div class="forList" style="background-color: rgb(0 0 0 )">
+
+                      <ul id="list1" class="userListContent">
+                        
+                      </ul>
+                  </div>
+            </div>
+
+            <div class="forBtn" style="flex-direction: column;">
+              <button id="selectButton" class="btnBackground " >Select Table</button>
+              <button id="clearButton" class="btnBackground " >Clear List</button>
+            </div>
+     
+          </div>
+        </div>
+
+    <div class="questionConatiner">  
+      <div style="width: 100%; height: auto; position: relative; text-align: center;">
+          <img style="display: block;" class="questionbackimage" src="../images/Board.png" alt="" srcset="">
+          
+          <div id="right" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <div id="question">
+              <!-- <h3 style="margin-bottom: 0rem !important;">Question:</h3> -->
+              <h3 class="questionText" id="questionText"></h3>
+            </div>
+            <div id="options" style="display: none;">
+              <button class="newOption ">Options 1</button>
+              <button class="newOption">Options 2</button>
+              <button class="newOption">Options 3</button>
+              <button class="newOption">Options 4</button>
+            </div>
+            
+            <button id="result-btn" class="btnBackground">See Result</button>
+            
+          </div>  
+        </div>    
+        <div class="next-backbuttonalign">  
+          <!-- <button class="btnBackground backalign" id="backToQuestion" >Back to Question</button>  -->
+          <button type="submit" class="btnBackground centeralign" onclick="openPopup()" style="  margin-left: 6rem;">Main Menu</button>
+
+          <!-- pop-up  -->
+          <div class="container ">
+  
+            <div class="popup" id="popup">
+              <button style="color: black;" type="button" onclick="closePopup()">X</button>
+  
+              <div style=" margin-top: 20px; ">
+  
+                <div style="text-align: center;">
+                  <!-- <img src="images/icons/reset-dark.gif" alt="reset-dark-icon" width="70px">
+                      <a href="">Reset</a> -->
+                  <button class="menu-btn" onclick="resetScore();">Reset Score</button>
+                </div>
+                <div style="text-align: center;">
+                  <!-- <img src="images/icons/reset-dark.gif" alt="reset-dark-icon" width="70px">
+                    <a href="">Reset</a> -->
+                  <a href="/moderator/main.html">
+                    <button class="menu-btn">Main Menu</button>
+                  </a>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+          <!-- pop-up  -->
+            <button class="btnBackground nextalign" id="nextQuestion"  style="margin-right: 7rem;">Next Question</button>
+          </div> 
+          
+    </div>  
+
+      <div class="timerdiv" >
+        <div id="left" class="userList"  style=" width: 100%; height: auto; position: relative; text-align: center;">
+          <img style="display: block; " class="timerpic" src="../images/timer_container.png">
+          <!-- <h2>Top 10 Buzzer Winners</h2> -->
+          <div style="position: absolute; top: 39%; left: 52%; transform: translate(-50%, -50%);">
+            <!-- <div class="ClockHolder"> -->
+              <div class="TimeHolder">
+                  <div class="Numbers">
+               
+                      <div class="NumberHolder S1">
+                          <span class="d1"></span>
+                          <span class="d2"></span>
+                          <span class="d3"></span>
+                          <span class="d4"></span>
+                          <span class="d5"></span>
+                          <span class="d6"></span>
+                          <span class="d7"></span>
+                      </div>
+                      <div class="NumberHolder S2">
+                          <span class="d1"></span>
+                          <span class="d2"></span>
+                          <span class="d3"></span>
+                          <span class="d4"></span>
+                          <span class="d5"></span>
+                          <span class="d6"></span>
+                          <span class="d7"></span>
+                      </div>
+                  </div>
+              </div>
+          <!-- </div> -->
+      
+          
+      
+           
+          
+          </div>
+
+          <div class="controllers" style="margin-top: 0px; display: inline-flex;">
+            <button class="pause-timer btnBackground">Pause</button>
+            <button class="play-timer btnBackground">Play&nbsp;&nbsp;&nbsp;</button>
+            <button class="reset-timer btnBackground">Reset</button>
+        </div>
+        
+        <div id="football_anim_object" class="football_anim" style="position: absolute; z-index: -10; width: 40%; top: 150%; left: 15%; transform: translate(-20%, -50%);">
+          <img style="width: 20vw; height: 45vh;" src="../images/Ladka1.gif" alt="football_animation" srcset="">
+        </div>
+        
+        </div>
+      </div>
+
+      <!-- For 👇 GIFs  For GIFs  For GIFs  For GIFs  For GIFs  For GIFs -->
+
+      <div id="popupContainer" style="display: none;">
+      <!-- <div id="popupContainer" style="display: block;"> -->
+        <div id="gifPopup">
+            
+        <img id="gifImage" src="../images/wrong-size-change.gif" alt="GIF Image">
+        </div>
+    </div>
+
+    <div id="popupContainer2" style="display: none;">
+    <!-- <div id="popupContainer2" style="display: block;"> -->
+        <div id="gifPopup2">
+            
+        <img id="gifImage2" src="../images/correct-size-change.gif" alt="GIF Image">
+        </div>
+    </div>
+     <!-- For ☝ GIFs  For GIFs  For GIFs  For GIFs  For GIFs  For GIFs -->
+
+  </div>  
+
+  <footer>
+    <p style="font-size: 12px; color: white;">Ref: Ngo CC, et al. PLoS One 2016;11(3):e0150949.doi:10.1371/journal.pone0150949.</p>
+</footer>
+
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="../timer.js"></script>
+  <script>
+
+
+var resultbtn = document.getElementById('result-btn');
+resultbtn.style.display = "none";
+var popupContainer = document.getElementById('popupContainer');
+var popupContainer2 = document.getElementById('popupContainer2');
+
+      var list1 = document.getElementById("list1");
+      var buttons = document.querySelectorAll("#tables-con button");
+      var limit = 5;
+      var count = 0;
+    //   var buzzerStarted = false;
+    //   const socket = io();
+    // var changeStaredText=  document.getElementById("showListButton")
+
+
+    const wrongAudio = new Audio('../sound/wrong-answer-Buzzer.mp3'); // Load the wrong answer sound file
+        const successAudio = new Audio('../sound/Winning.mp3'); // Load the success sound file
+
+  
+
+
+// Changing FooterText  Changing FooterText Changing FooterText  Changing FooterText Changing FooterText  Changing FooterText
+function changeFooterText(newText) {
+                      const footerParagraph = document.querySelector('footer p');
+                      if (footerParagraph) {
+                          footerParagraph.textContent = newText;
+                      } else {
+                          console.error('Footer paragraph not found.');
+                      }
+                  }
+
+
+
+ // Function to show the popup container and hide it after 3 seconds
+ function showPopup() {
+    popupContainer.style.display = "block";
+    setTimeout(function() {
+      popupContainer.style.display = "none";
+    }, 3000); // 3000 milliseconds = 3 seconds
+  }
+
+  function showPopup2() {
+    popupContainer2.style.display = "block";
+    setTimeout(function() {
+      popupContainer2.style.display = "none";
+    }, 3000); // 3000 milliseconds = 3 seconds
+  }
+
+
+
+// Question format:
+var questions = [
+	{
+            question:"Select Three Tables to Continue",
+            options: [" ", " ", " ", ""],
+        },
+        {
+          question: "Q1. Which of the following is included as the first choice in the treatment of Skin & Soft Tissue Infections in the WHO Model list of essential medicines (2023)?",
+          options: ["A . Co amoxiclav", "B . Azithromycin", "C . Ciprofloxacin", "D . Clarithromycin"],
+          answer: "A . Co amoxiclav",
+          ref: " Ref: Ngo CC, et al. PLoS One 2016;11(3):e0150949.doi:10.1371/journal.pone0150949."
+        },
+    
+        {
+          question: "Q2. FDA issued notification to the manufacturers of which drug while obligating them to add a boxed `warning to the prescribing information?",
+          options: ["A . Ciprofloxacin","B . Co- Amoxiclave","C . Moxifloxacin", "D . Fluoroquinolones"],
+          answer: "D . Fluoroquinolones",
+          ref: " Ref:  Fredrick M. Abrahamian et al “Management of Skin and Soft-Tissue Infections in the Emergency Department ; Infect Dis Clin N Am 22 (2008) 89–116 "
+        },
+       
+           {
+          question: "Q3. Lower respiratory tract infections (LRTIs) are an important infection throughout the world; in the World Health Organization top ten leading causes of death (global), LRTIs rank at position:",
+          options: ["A . One", "B . Two", "C . Three", "D . None of These"],
+          answer: "C . Three",
+          ref: " "
+        },
+       
+    
+        
+        {
+          question: "Q4. Of those individuals who develop chronic suppurative otitis media, what proportion will then suffer hearing loss as a result? ",
+          options: ["A . 40%", "B . 50%", "C . 60%" ,"D . 70%"],
+          answer: "C . 60%",
+          ref: " Ref: Augmentin Tablets & Suspension Datasheet, GDS29/IPI19, Date of Issue: 07 September 2023."
+        },
+            {
+          question: "Q5. In which year was Augmentin launched in Pakistan?",
+          options: [
+            "A . 1986",
+            "B . 1990",
+            "C . 1950 ",
+            "D . 2000",
+          ],
+          answer: "A . 1986",
+          ref: " "
+        },
+        {
+          question: "Q6. SOAR was conducted in?",
+          options: ["A . Pakistan", "B . Middle East", "C . Middle East, North Africa, and Pakistan", "D . North Africa"],
+          answer: "C . Middle East, North Africa, and Pakistan",
+          ref: " Ref: Qureshi A, et al. Infect Drug Res 2014;7:15–24."
+        },
+    
+        {
+          question: "Q7. The absorption of amoxicillin-clavulanate is optimized when taken?",
+          options: ["A . At the start of a meal","B . At the end of a meal","C . At bedtime", "D . None of the above"],
+          answer: "A . At the start of a meal",
+          ref: " Ref:  Klein JO. Amoxicillin/Clavulanate for infections in infants and Children: past, present and future. Pediatr Infect Dis J 2003;22:8 S139-48."
+        },
+        
+        {
+          question: "Q8. What indications are Augmentin Suspensions & Infant Drops prescribed in?",
+          options: [
+            "A . ACUTE OTITIS MEDIA",
+            "B . Community Acquired Pneumonia",
+            "C . Skin & Soft Tissue Infections",
+            "D . All the Above",
+          ],
+          answer: "D . All the Above",
+          ref: " Ref:  Monasta L, et al. PLoS One 2012;7(4):e36226."
+        },
+
+        {
+          question: "Q9. What does SOAR stand for?",
+          options: ["A . Scope of Antimicrobial Resistance","B . Study of Antimicrobial Resistance","C . Survey of Antibiotic Resistance", "D . Summary of Antimicrobial Resistance"],
+          answer: "C . Survey of Antibiotic Resistance",
+          ref: " Ref:  VI. Block SL, Harrison CJ. Diagnosis and management of acute otitis media. 3rd ed. Professional Communications: Caddo, OK, 2005 "
+        },
+       
+        
+      ];
+      var currentQuestionIndex = 0;
+      const listElement = document.getElementById('list1');
+
+      var questionText = document.getElementById("questionText");
+      var optionsDiv = document.getElementById("options");
+
+      function displayQuestion(questionObj) {
+        questionText.textContent = questionObj.question;
+        optionsDiv.innerHTML = "";
+        questionObj.options.forEach(function (option) {
+          var div = document.createElement("div");
+          div.textContent = option;
+
+          changeFooterText(questionObj.ref);
+
+          
+//<!-- adding class list -->
+
+
+div.classList.add("newOption");
+          div.addEventListener("click", function () {
+            var selectedTable = document.querySelector(".selected");
+            if (selectedTable) {
+              var tableNumber = "Game2 "+selectedTable.textContent;
+              if (option === questionObj.answer) {
+                div.style.color = "#92FDFF";
+                var score = localStorage.getItem(tableNumber) || 0;
+                score = parseInt(score) + 10;
+                localStorage.setItem(tableNumber, score);
+                successAudio.play();
+                pauseTimer();
+                showPopup2();
+              } else {
+                div.style.color = "red";
+                var score = localStorage.getItem(tableNumber) || 0;
+                score = parseInt(score) + 0;
+                localStorage.setItem(tableNumber, score);
+                wrongAudio.play();
+                pauseTimer();
+                showPopup();
+              }
+            }
+          });
+          optionsDiv.appendChild(div);
+        });
+
+       
+
+      }
+
+      var clickCount =0;
+      function nextQuestion() {
+        resetTimer();
+
+        if ( listElement.children.length < 3) {
+            alert("Plz Select 3 Tables First")
+        }
+        else{
+
+                options.style.display ="grid";
+            clickCount++;
+            count = 0;
+            // buzzerStarted = false;
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion(questions[currentQuestionIndex]);
+                list1.children[0].classList.add("selected");
+                
+                // Select the items based on the click count
+                if (clickCount  < 4) {
+                    // If clicked less than five times, select the first item and remove selections from others
+                    listElement.children[0].classList.add("selected");
+                    listElement.children[1].classList.remove("selected");
+                    listElement.children[2].classList.remove("selected");
+                } else if (clickCount >= 4 && clickCount < 7) {
+                    // If clicked between five and eight times, select the second item and remove selections from others
+                    listElement.children[0].classList.remove("selected");
+                    listElement.children[1].classList.add("selected");
+                    listElement.children[2].classList.remove("selected");
+                } else if (clickCount >= 7 && clickCount <= 10) {
+                    // If clicked between nine and twelve times, select the third item and remove selections from others
+                    listElement.children[0].classList.remove("selected");
+                    listElement.children[1].classList.remove("selected");
+                    listElement.children[2].classList.add("selected");
+                }
+            } else {
+                // If all questions have been displayed, hide the question and options
+                questionText.style.display = "none";
+                optionsDiv.style.display = "none";
+                resultbtn.style.display = "block";
+            }
+
+        }
+
+}
+
+      displayQuestion(questions[currentQuestionIndex]);
+
+      document.getElementById("nextQuestion").addEventListener("click", nextQuestion);
+      resultbtn.addEventListener('click', function() {
+  // Redirect to result1.html
+  window.location.href = "result2.html";
+});
+  </script>
+    </script>
+
+  <!-- JavaScript for popup menu -->
+  <script>
+    let popup = document.getElementById('popup')
+
+    function openPopup() {
+      popup.classList.add('open-popup')
+
+    }
+
+    function closePopup() {
+      popup.classList.remove('open-popup')
+    }
+  </script>
+<script>
+ 
+
+  // // Add event listener for the "Back to Question" button
+  // document.getElementById("backToQuestion").addEventListener("click", backToQuestion);
+
+  // // Define the backToQuestion function
+  // function backToQuestion() {
+  //   // Update the currentQuestionIndex to navigate back
+  //   currentQuestionIndex = Math.max(0, currentQuestionIndex - 1);
+  //   // Display the question at the updated index
+  //   displayQuestion(questions[currentQuestionIndex]);
+  //   // // Show the "Next Question" button
+  //   // document.getElementById("nextQuestion").style.display = "block";
+  //   // // Hide the "Back to Question" button
+  //   // document.getElementById("backToQuestion").style.display = "none";
+  // }
+
+
+  resultbtn.addEventListener('click', function() {
+  // Redirect to result1.html
+  window.location.href = "result2.html";
+});
+
+function back() {
+        window.location.href='Game2.html';
+    }
+
+function resetScore() {
+    const keysToRemove = [];
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key.startsWith("Game2 Table")) {
+            keysToRemove.push(key);
+        }
+    }
+
+    // Remove the collected keys
+    for (const key of keysToRemove) {
+        localStorage.removeItem(key);
+    }
+}
+</script>
+<script>
+   document.getElementById('selectButton').addEventListener('click', function() {
+            const selectElement = document.getElementById('userSelect');
+            const selectedOptions = Array.from(selectElement.selectedOptions);
+            const userList = document.getElementById('list1');
+
+            // Check if no options are selected
+            if (selectedOptions.length === 0) {
+                alert('Please select a table first');
+                return;
+            }
+
+            // Get the existing users in the list
+            const existingUsers = Array.from(userList.children).map(li => li.textContent);
+
+            // Iterate over selected options
+            selectedOptions.forEach(option => {
+                // If the selected user is already in the list or if there are already 3 users, do nothing
+                if (existingUsers.includes(option.value) || existingUsers.length >= 3) {
+                    return;
+                }
+
+                // Create a new list item for the selected user
+                const li = document.createElement('li');
+                li.textContent = option.value;
+                userList.appendChild(li);
+                existingUsers.push(option.value); // Update existingUsers list to prevent duplicates in this loop
+            });
+        });
+
+        document.getElementById('clearButton').addEventListener('click', function() {
+            const userList = document.getElementById('list1');
+            userList.innerHTML = '';
+        });
+  
+      </script>
+
+<script src="../../moderator/sound.js"></script>
+  </body>
+</html>

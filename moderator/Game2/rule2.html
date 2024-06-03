@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round1 Rules</title>
+    <link rel="stylesheet" href="../modstyle.css">
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="../worker.js"></script>
+   
+</head>
+<body class="rulebackground">
+    <audio id="clickSound" src="../sound/click.mp3"></audio>
+
+    
+        <div class="ruleGGParentDiv" >
+            <div class="ruleGParentDiv">
+                <h2 class="GH">
+                    MYSTERY MISMATCH</h2>
+            </div>
+
+            <div class="GDiv">
+                <div class="hDiv">
+                    <h1 class="hS">1.  Look at two pictures that look almost the same.</h1>
+                    <h1  class="hS">2. Find 10 differences between them.</h1>
+                    <h1  class="hS">3. Take your time to carefully look over both pictures.</h1>
+                    <h1  class="hS">4. Spot and point out all 10 differences.</h1>
+                    <h1  class="hS">5. Use the highlighter provided to mark these differences on the paper.</h1>
+                    <h1  class="hS">6. When you find all the differences, put your paper in the box on the stage.</h1>
+                    <h1  class="hS">7. Be careful-marking wrong differences will disqualify your team.</h1>
+                    <h1  class="hS">8. The top 3 teams to correctly and quickly spot the differences will have the chance to answer 3 questions each.</h1>
+                    <h1  class="hS">9. Each correct answer gives your team 10 points, and there's no penalty for wrong answers.</h1>
+                </div>                     
+            </div>
+        </div>
+    </div>
+   
+    <div class="buttonsoundalign" style="bottom: 55%;">
+        
+        <button onclick="back()" class="soundleft" >back</button>
+        
+        <button id="volumeup" class="soundright" onclick="backSound()" style="display: block;">  <i class="fas fa-volume-xmark"></i></button>
+        <button id="volumedown" class="soundright" onclick="backSound2()" style="display: none;">  <i class="fas fa-volume-up"></i></button>
+        
+    </div>
+ 
+
+
+    <div class="forBtn">
+        <button id="result-btn" class="btnBackground">Start Game</button>
+    </div>
+
+    <script>
+   
+  
+    function back() {
+        window.location.href='../main.html';
+    }
+    </script>
+    <script src="../../moderator/sound.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+       
+           var audio = document.getElementById('clickSound');
+       
+         
+           var startButtons = document.querySelectorAll('.btnBackground');
+       
+           startButtons.forEach(function(startButton) {
+               startButton.addEventListener('click', function(event) {
+                  
+                   audio.play();
+                   
+                   event.preventDefault();
+                  
+                   setTimeout(function() {
+                       window.location.href = 'Game2.html';
+                   }, 500); 
+               });
+           });
+       });
+       
+       </script>
+</body>
+</html>

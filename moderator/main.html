@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Main Rounds</title>
+    <link rel="stylesheet" href="modstyle.css">
+    
+
+    <script src="worker.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('./images/Augmentrix-Game-New-4.webp');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: 100% 100%;
+            overflow: hidden;
+        }
+
+        .main {
+            width: 100%;
+        }
+
+        .forMainLogo {
+            text-align: center;
+        }
+
+        .forMainLogo img {
+            width: 30%;
+            margin-top: 4rem;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .container {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+       
+
+        .avatar {
+            width: 100%;
+            /* margin-left: -2.5rem; */
+            height: auto;
+            box-sizing: border-box;
+            overflow: hidden;
+            transform: translateY(0px);
+            animation: float 4s ease-in-out infinite;
+            
+        }
+
+        .avatar img {
+            width: 100%; /* Ensures the image takes up the full width of the avatar */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <audio id="clickSound" src="./sound/click.mp3"></audio>
+        <div class="forMainLogo">
+            <img id='gsk' src="./images/Augmentin Junior-01.webp" alt="GSK Image"/>
+        </div>
+ <!-- FOR Sound👇 and Back -->
+ <div class="buttonsoundalign">
+        
+    <button class="soundleft" style="background-color: transparent; color: transparent; border: none;">back</button>
+    
+    <button id="volumeup" class="soundright" onclick="backSound()" style="display: block;">  <i class="fas fa-volume-up"></i></button>
+    <button id="volumedown" class="soundright" onclick="backSound2()" style="display: none;">  <i class="fas fa-volume-xmark"></i></button>
+    
+</div>
+<!-- FOR Sound☝and Back  -->
+        <!-- <div class="container">
+            <div class="container-inner" style="width: 90%;">
+                <div class="rounds-icons-board">
+                    <a  style="margin-right: 2rem;" class="avatar" href="./Game1/rule1.html">
+                        <img src="./images/2-02.png" alt="Skytsunami" />
+                    </a>
+                    <a style="margin-left: -30px;" class="avatar" href="rule2.html">
+                        <img src="./images/2-01.png" alt="Skytsunami" />
+                    </a>
+                    <a class="avatar" href="rule3.html">
+                        <img src="./images/2-03.png" alt="Skytsunami" />
+                    </a>
+                </div>
+            </div>    
+        </div> -->
+    <div style="width: 100%; display: flex; justify-content: center; text-align: center;">    
+        <div id="left" class="userList"  style=" width: 90%; height: auto; position: relative; text-align: center; margin-left: 15rem;">
+            <img  class="timerpic" style="width: 85%;" src="./images/1.png">
+            <!-- <h2>Top 10 Buzzer Winners</h2> -->
+            <div style="position: absolute; top: 50%; left: 42.5%; transform: translate(-50%, -50%); width: 67%; display: inline-flex;">
+                <a  style="margin-right: 2rem;" class="avatar" href="./Game1/rule1.html">
+                    <img src="./images/2-02.png" alt="Round1" />
+                </a>
+                <a style="margin-right: 2rem;" class="avatar" href="./Game2/rule2.html">
+                    <img src="./images/2-01.png" alt="Round2" />
+                </a>
+                <a class="avatar" href="./Game3/rule3.html">
+                    <img src="./images/2-03.png" alt="Round3" />
+                </a>
+            </div>
+        </div>        
+    </div>    
+
+    <div class="resetscorediv" style="width: 100%; display: flex; justify-content: center; text-align: center;">
+        <button class="menu-btn" style="padding: 20px;  background-color: #5A0191; border-radius: 10px; border: none; outline: none; color: white;" onclick="resetScore();">Reset Score</button>
+        <button class="menu-btn" style="padding: 20px;  background-color: #5A0191; border-radius: 10px; border: none; outline: none; color: white;" onclick="finalResult();">Final Results</button>
+
+        <!-- <audio src='../sound/Quiz Show Countdown Short.wav'></audio> -->
+    </div>
+    <img src="./images/Augmentrix-Game-New-3.webp" alt="" srcset="" style="display: none;">
+    <audio src="../sound/Background-Music.mp3"></audio>
+    <script >
+       
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+           // Get the audio element
+           var audio = document.getElementById('clickSound');
+       
+           // Get all elements with the class 'btnBackground'
+           var startButtons = document.querySelectorAll('.avatar');
+       
+           // Add click event listener to each button with the 'btnBackground' class
+           startButtons.forEach(function(startButton) {
+               startButton.addEventListener('click', function(event) {
+                   // Prevent the default action to avoid immediate navigation
+                   
+                   // Play the sound
+                   audio.play();
+                   
+                   event.preventDefault();
+                   // Delay the navigation to allow the sound to play
+                   setTimeout(function() {
+                       window.location.href = startButton.href;
+                   }, 500); // Adjust the delay time as needed
+               });
+           });
+       });
+
+
+
+
+
+       var backgroundAudio = new Audio('./sound/Background-Music.mp3');
+  
+    
+  // backgroundAudio.play();
+//   backgroundAudio.loop = true; // Loop the audio
+  
+  var volumeup = document.getElementById('volumeup'); // Corrected ID
+  var volumedown = document.getElementById('volumedown'); // Corrected ID
+  volumedown.style.display = "none";
+  
+  function backSound() {
+      console.log("sound play");
+      backgroundAudio.play();
+      volumeup.style.display = 'none'; // Change the display to none when audio is playing
+      volumedown.style.display = 'block'; // Change the display to block when audio is playing
+  }
+  
+  function backSound2() {
+      console.log("sound pause");
+      backgroundAudio.pause();
+      volumeup.style.display = 'block'; // Change the display to block when audio is paused
+      volumedown.style.display = 'none'; // Change the display to none when audio is paused
+  }
+
+  function resetScore() {
+   
+
+    if (window.confirm("Are you sure you want to Reset Score?")) {
+        localStorage.clear();
+        console.log("Local storage has been cleared!");
+    } else {
+        console.log("Local storage was not cleared.");
+    }
+}
+
+function finalResult() {
+    window.location.href='final_result.html';
+}
+
+       </script>
+       
+</body>
+</html>

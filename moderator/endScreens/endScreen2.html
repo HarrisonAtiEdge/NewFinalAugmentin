@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round1 Rules</title>
+    <link rel="stylesheet" href="../modstyle.css">
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script src="../worker.js"></script>
+</head>
+<body class="rulebackground">
+    <audio id="clickSound" src="../sound/click.mp3"></audio>
+
+    
+        <div class="ruleGGParentDiv" >
+            <div class="ruleGParentDiv">
+                <h3 style="font-size: 3rem; margin: .5rem;"  >
+                    AUGMENTIN Safety Information</h3>
+            </div>
+
+            <div class="GDiv" style="color: #ccc6d0;">
+                <div class="hDiv" style="width: 80%;">
+                    <p class="phS">• The most commonly reported adverse drug reactions are diarrhoea, nausea and vomiting. Nausea is more often associated with higher oral doses. If gastrointestinal reactions are evident, they may be reduced by taking Augmentin at the start of a meal</p>
+                    <p  class="phS">• Contraindicated in patients with known hypersensitivity to beta-lactam antibiotics (penicillins and cephalosporins). Before initiating therapy with amoxicillin-clavulanate, careful enquiry should be made concerning previous hypersensitivity reactions to antibiotics</p>
+                    <p  class="phS"> • Prolonged use may result in overgrowth of Candida and other non-susceptible organisms</p>
+                    <p  class="phS">• Should be used with caution in patients with evidence of hepatic dysfunction.</p>
+                    <p  class="phS">• In patients with renal impairment the dosage may need to be adjusted  </p>
+                    <p  class="phS">• Consideration should be given to local susceptibility data (where available) and official guidance on the appropriate use of antibacterial agents Augmentin tablets and suspension. 
+                    </p>
+                    <p  class="phS" >Local Prescribing Information. Version number: GDS26/IPI16
+                        <p  class="phS" style="border: 2px solid white; border-radius: .7rem;     padding: 1rem;  margin: 2rem 0;"  > Adverse Events must be reported. For products related to GSK Pakistan, please report adverse events via email at pk_pharmasafety@gsk.com or call us at +92 (21) 111 475 725 -Ext:7 & 8</p>
+                        <p  class="phS" >Full prescribing information is available on request. </p>
+                        <p  class="phS" >   GlaxoSmithKline Pakistan Limited 35 - Dockyard Road, West Wharf, Karachi - 74000. Augmentin is a trademark of GlaxoSmithKline group of companies GlaxoSmithKline Pakistan Limited is a member of GlaxoSmithKline group of companies. © 
+                            2024 GlaxoSmithKline Pakistan Limited  </p>
+                        <p  class="phS" > Document no: CL Code   PM-PK-ACA-BRF-240002  Date of Preparation: June 2024 </p></p>
+                    
+ 
+                        
+                        
+                         
+                        
+                    
+                        
+                        
+                </div>                        
+            </div>
+        </div>
+    </div>
+   
+    <div class="buttonsoundalign" style="bottom: 55%;">
+        
+        <button onclick="back()" class="soundleft" >back</button>
+        
+        <button id="volumeup" class="soundright" onclick="backSound()" style="display: block;">  <i class="fas fa-volume-xmark"></i></button>
+        <button id="volumedown" class="soundright" onclick="backSound2()" style="display: none;">  <i class="fas fa-volume-up"></i></button>
+        
+    </div>
+ 
+
+
+    <div class="forBtn">
+        <button id="result-btn" class="btnBackground">NEXT</button>
+    </div>
+
+    <script>
+   
+  
+    function back() {
+        window.location.href='endScreen1.html';
+    }
+    </script>
+    <script src="../../moderator/sound.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+       
+           var audio = document.getElementById('clickSound');
+       
+         
+           var startButtons = document.querySelectorAll('.btnBackground');
+       
+           startButtons.forEach(function(startButton) {
+               startButton.addEventListener('click', function(event) {
+                  
+                   audio.play();
+                   
+                   event.preventDefault();
+                  
+                   setTimeout(function() {
+                       window.location.href = 'endScreen3.html';
+                   }, 500); 
+               });
+           });
+       });
+       
+       </script>
+</body>
+</html>

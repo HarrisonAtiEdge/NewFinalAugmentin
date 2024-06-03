@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../modstyle.css">
+    <link rel="stylesheet" href="../timer.css">
+    <link rel="stylesheet" href="../menu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>New Game for Augmentin</title>
+    <script src="../worker.js"></script>
+    <style>
+       .football_anim {
+    transition: transform 3s ease; /* Define a CSS transition for the transform property */
+  }
+    </style>
+
+  </head>
+  <body class="mainbackground" style="overflow: hidden;">
+    <audio id="clickSound" src="../sound/click.mp3"></audio>
+      <div class="banner">
+        <div class="gskalign">
+          <img class="gsklogo" src="../images/GSK Logo.png">
+        </div>
+        <div class="augmentinalign">
+          <img class="augmentinlogo" src="../images/Augmentin Logo.png">
+        </div>
+      </div>
+
+   <!-- FOR Sound👇 and Back -->
+   <div class="buttonsoundalign">
+        
+    <button onclick="back()" class="soundleft" >back</button>
+    
+    <button id="volumeup" class="soundright" onclick="backSound()" style="display: block;">  <i class="fas fa-volume-up"></i></button>
+    <button id="volumedown" class="soundright" onclick="backSound2()" style="display: block;">  <i class="fas fa-volume-xmark"></i></button>
+    
+</div>
+<!-- FOR Sound☝and Back  -->
+
+
+  <div class="maincontainer" style="justify-content: center;">
+        <div class="tablebuzzer">
+          <div id="left" class="userList"  style="width: 100%; height: auto; position: relative; text-align: center;">
+            <img style="display: block;" class="buzzerpic" src="../images/newBuzzerBoard.png">
+            <!-- <h2>Top 10 Buzzer Winners</h2> -->
+            <div style="position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%);">
+              
+              <ul id="list" class="userListContent">
+              </ul>
+            </div>
+
+            <div class="forBtn">
+              <button id="showListButton" class="btnBackground " >Start Buzzer</button>
+            </div>
+     
+          </div>
+        </div>
+
+    <div class="questionConatiner">  
+      <div style="width: 100%; height: auto; position: relative; text-align: center;">
+          <img style="display: block;" class="questionbackimage" src="../images/Board.png" alt="" srcset="">
+          
+          <div id="right" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <div id="question">
+              <!-- <h3 style="margin-bottom: 0rem !important;">Question:</h3> -->
+              <h3 class="questionText" id="questionText"></h3>
+            </div>
+            <div id="options">
+              <button class="newOption ">Options 1</button>
+              <button class="newOption">Options 2</button>
+              <button class="newOption">Options 3</button>
+              <button class="newOption">Options 4</button>
+            </div>
+            
+            <button id="result-btn" class="btnBackground">See Result</button>
+            
+          </div>  
+        </div>    
+        <div class="next-backbuttonalign">  
+          <button class="btnBackground backalign" id="backToQuestion" >Back to Question</button> 
+          <button type="submit" class="btnBackground centeralign" onclick="openPopup()">Main Menu</button>
+
+          <!-- pop-up  -->
+          <div class="container ">
+  
+            <div class="popup" id="popup">
+              <button style="color: black;" type="button" onclick="closePopup()">X</button>
+  
+              <div style=" margin-top: 20px; ">
+  
+                <div style="text-align: center;">
+                  <!-- <img src="images/icons/reset-dark.gif" alt="reset-dark-icon" width="70px">
+                      <a href="">Reset</a> -->
+                  <button class="menu-btn" onclick="resetScore();">Reset Score</button>
+                </div>
+                <div style="text-align: center;">
+                  <!-- <img src="images/icons/reset-dark.gif" alt="reset-dark-icon" width="70px">
+                    <a href="">Reset</a> -->
+                  <a href="/moderator/main.html">
+                    <button class="menu-btn">Main Menu</button>
+                  </a>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+          <!-- pop-up  -->
+            <button class="btnBackground nextalign" id="nextQuestion">Next Question</button>
+          </div> 
+          
+    </div>  
+
+      <div class="timerdiv" >
+        <div id="left" class="userList"  style=" width: 100%; height: auto; position: relative; text-align: center;">
+          <img style="display: block; " class="timerpic" src="../images/timer_container.png">
+          <!-- <h2>Top 10 Buzzer Winners</h2> -->
+          <div style="position: absolute; top: 39%; left: 52%; transform: translate(-50%, -50%);">
+            <!-- <div class="ClockHolder"> -->
+              <div class="TimeHolder">
+                  <div class="Numbers">
+               
+                      <div class="NumberHolder S1">
+                          <span class="d1"></span>
+                          <span class="d2"></span>
+                          <span class="d3"></span>
+                          <span class="d4"></span>
+                          <span class="d5"></span>
+                          <span class="d6"></span>
+                          <span class="d7"></span>
+                      </div>
+                      <div class="NumberHolder S2">
+                          <span class="d1"></span>
+                          <span class="d2"></span>
+                          <span class="d3"></span>
+                          <span class="d4"></span>
+                          <span class="d5"></span>
+                          <span class="d6"></span>
+                          <span class="d7"></span>
+                      </div>
+                  </div>
+              </div>
+          <!-- </div> -->
+      
+          
+      
+           
+          
+          </div>
+
+          <div class="controllers" style="margin-top: 0px; display: inline-flex;">
+            <button class="pause-timer btnBackground">Pause</button>
+            <button class="play-timer btnBackground">Play&nbsp;&nbsp;&nbsp;</button>
+            <button class="reset-timer btnBackground">Reset</button>
+        </div>
+        
+        <div id="football_anim_object" class="football_anim" style="position: absolute; z-index: -10; width: 40%; top: 150%; left: 15%; transform: translate(-20%, -50%);">
+          <img style="width: 20vw; height: 45vh;" src="../images/Ladka1.gif" alt="football_animation" srcset="">
+        </div>
+        
+        </div>
+      </div>
+
+      <!-- For 👇 GIFs  For GIFs  For GIFs  For GIFs  For GIFs  For GIFs -->
+
+      <div id="popupContainer" style="display: none;">
+      <!-- <div id="popupContainer" style="display: block;"> -->
+        <div id="gifPopup">
+            
+        <img id="gifImage" src="../images/wrong-size-change.gif" alt="GIF Image">
+        </div>
+    </div>
+
+    <div id="popupContainer2" style="display: none;">
+    <!-- <div id="popupContainer2" style="display: block;"> -->
+        <div id="gifPopup2">
+            
+        <img id="gifImage2" src="../images/correct-size-change.gif" alt="GIF Image">
+        </div>
+    </div>
+     <!-- For ☝ GIFs  For GIFs  For GIFs  For GIFs  For GIFs  For GIFs -->
+
+  </div>  
+
+  <footer>
+    <p style="font-size: 12px; color: white;">Ref: Ngo CC, et al. PLoS One 2016;11(3):e0150949.doi:10.1371/journal.pone0150949.</p>
+</footer>
+
+<script src="../timer.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+
+
+
+
+var popupContainer = document.getElementById('popupContainer');
+var popupContainer2 = document.getElementById('popupContainer2');
+
+      var list = document.getElementById("list");
+      var buttons = document.querySelectorAll("#tables-con button");
+      var limit = 5;
+      var count = 0;
+      var buzzerStarted = false;
+      const socket = io();
+    var changeStaredText=  document.getElementById("showListButton")
+
+
+    const wrongAudio = new Audio('../sound/wrong-answer-Buzzer.mp3'); // Load the wrong answer sound file
+        const successAudio = new Audio('../sound/Winning.mp3'); // Load the success sound file
+
+      document.getElementById("showListButton").addEventListener("click", function () {
+        buzzerStarted = true;
+        changeStaredText.innerHTML='Buzzer Started!';
+      });
+
+      socket.on('login', (data) => {
+    if (buzzerStarted && count < limit) {
+        var newItem = document.createElement("li");
+        newItem.textContent = `${data.username}`;
+        newItem.style.marginBottom = "20px";
+        newItem.style.boxShadow = "0px 1px 2px rgba(221,169,243,0.5), 0px 2px 4px rgba(221,169,243,0.5), 0px 4px 8px rgba(221,169,243,0.5), 0px 8px 16px rgba(221,169,243,0.5)";
+        list.appendChild(newItem);
+        newItem.addEventListener("click", function () {
+            var otherItems = list.querySelectorAll("li");
+            otherItems.forEach(function (item) {
+                item.classList.remove("selected");
+            });
+            newItem.classList.add("selected");
+        });
+        count++;
+    }
+});
+
+// Changing FooterText  Changing FooterText Changing FooterText  Changing FooterText Changing FooterText  Changing FooterText
+function changeFooterText(newText) {
+                      const footerParagraph = document.querySelector('footer p');
+                      if (footerParagraph) {
+                          footerParagraph.textContent = newText;
+                      } else {
+                          console.error('Footer paragraph not found.');
+                      }
+                  }
+
+
+
+ // Function to show the popup container and hide it after 3 seconds
+ function showPopup() {
+    popupContainer.style.display = "block";
+    setTimeout(function() {
+      popupContainer.style.display = "none";
+    }, 3000); // 3000 milliseconds = 3 seconds
+  }
+
+  function showPopup2() {
+    popupContainer2.style.display = "block";
+    setTimeout(function() {
+      popupContainer2.style.display = "none";
+    }, 3000); // 3000 milliseconds = 3 seconds
+  }
+
+
+
+// Question format:
+ var questions = [
+        {
+          question: "Q1. Which one of the following organisms is NOT a common cause of OTITIS MEDIA?",
+          options: ["A  .  Streptococcus pneumoniae", "B  .  Hemophilus influenzae", "C  .  Moraxella catarrhalis", "D  .  Klebsiella pneumoniae"],
+          answer: "D  .  Klebsiella pneumoniae",
+          ref: " Ref: Ngo CC, et al. PLoS One 2016;11(3):e0150949.doi:10.1371/journal.pone0150949."
+        },
+    
+        {
+          question: "Q2. Which of the following is NOT a suppurative intracranial complication of chronic suppurative otitis media?",
+          options: ["A . Brain abscess","B . Sinus cavernous thrombosis","C . Epidural abscess", "D . Mastoiditis"],
+          answer: "D . Mastoiditis",
+          ref: " Ref:  Fredrick M. Abrahamian et al “Management of Skin and Soft-Tissue Infections in the Emergency Department ; Infect Dis Clin N Am 22 (2008) 89–116 "
+        },
+        {
+          question: "Q3. An example of an uncomplicated Skin infection is",
+          options: ["A . Diabetic Foot Infection", "B . Impetigo", "C . Perianal Skin Infection", "D . Secondary Infection of a Diseased skin"],
+          answer: "B . Impetigo",
+          ref: " Ref:  Harris M, et al. Thorax 2011;66:ii1-ii23  "
+        },
+        {
+          question: "Q4. If gastrointestinal reactions to Augmentin become evident, how can they be reduced?",
+          options: [
+            "A . Take dose after a meal",
+            "B . Take dose at bedtime ",
+            "C . Take dose at the start of the meal",
+            "D . None of the above",
+          ],
+          answer: "C . Take dose at the start of the meal",
+          ref: " Ref:  Reference: Ball P, et al. Int J Antimicrob Ag 2007;30S:S139–S141."
+        },
+        {
+          question: "Q5. What is the peak incidence age of ACUTE OTITIS MEDIA",
+          options: ["A . 6-15 months", "B . 12-24 months", "C . 0-9 months", "D . 9-18 months"],
+          answer: "A . 6-15 months",
+          ref: " Ref:  Levy-Hara G, et al. Front Microbiol 2011;2:230 "
+        },
+        {
+          question: "Q6. Lower respiratory tract infections (LRTIs) are an important infection throughout the world; in the World Health Organization top ten leading causes of death (global), LRTIs rank at position:",
+          options: ["A . One", "B . Two", "C . Three", "D . None of These"],
+          answer: "C . Three",
+          ref: " "
+        },
+        {
+          question: "Q7. Global ACUTE OTITIS MEDIA incidence rate is estimated at just over:",
+          options: [
+            "A .  7 Million cases/year",
+            "B .  70,000 cases/year",
+            "C .  Immune system immaturity",
+            "D .  700 Million cases/year",
+          ],
+          answer: "D .  700 Million cases/year",
+          ref: " Ref: Acuin J. World Health Organization, 2004. http://www.who.int/pbd/deafness/activities/hearing_care/otitis_ media"
+        },
+        {
+          question: "Q8. If a patient is prescribed Augmentin B.D. suspension 457mg/5ml, how many times a day should it be administered?",
+          options: [
+            "A . 4",
+            "B . 3",
+            "C . 2",
+            "D . 1",
+          ],
+          answer: "C . 2",
+          ref: " Ref: Venekamp RP, et al. Am Fam Phys 2017;95(2):109–110"
+        },
+        
+        
+        
+      ];
+
+      var currentQuestionIndex = 0;
+
+      var questionText = document.getElementById("questionText");
+      var optionsDiv = document.getElementById("options");
+
+      function displayQuestion(questionObj) {
+        questionText.textContent = questionObj.question;
+        optionsDiv.innerHTML = "";
+        questionObj.options.forEach(function (option) {
+          var div = document.createElement("div");
+          div.textContent = option;
+
+
+          changeFooterText(questionObj.ref);
+
+//<!-- adding class list -->
+
+
+div.classList.add("newOption");
+          div.addEventListener("click", function () {
+            var selectedTable = document.querySelector(".selected");
+            if (selectedTable) {
+              var tableNumber = "Game1 "+selectedTable.textContent;
+              if (option === questionObj.answer) {
+                div.style.color = "#92FDFF";
+                var score = localStorage.getItem(tableNumber) || 0;
+                score = parseInt(score) + 10;
+                localStorage.setItem(tableNumber, score);
+                successAudio.play();
+                pauseTimer();
+                showPopup2();
+              } else {
+                div.style.color = "red";
+                var score = localStorage.getItem(tableNumber) || 0;
+                score = parseInt(score) + 0;
+                localStorage.setItem(tableNumber, score);
+                wrongAudio.play();
+                pauseTimer();
+                showPopup();
+                
+              }
+            }
+          });
+          optionsDiv.appendChild(div);
+        });
+      }
+
+      
+      var resultbtn = document.getElementById('result-btn');
+resultbtn.style.display = "none";
+
+function nextQuestion() {
+  count = 0;
+  buzzerStarted = false;
+  changeStaredText.innerHTML='Start Buzzer';
+  if (currentQuestionIndex < questions.length - 1) {
+    currentQuestionIndex++;
+    displayQuestion(questions[currentQuestionIndex]);
+  } else {
+    questionText.style.display = "none";
+    optionsDiv.style.display = "none";
+    resultbtn.style.display = "block"; 
+
+  }
+  list.innerHTML = "";
+  document.getElementById("list").style.display = "none";
+
+
+
+  resetTimer();
+
+
+}
+      displayQuestion(questions[currentQuestionIndex]);
+
+      document.getElementById("nextQuestion").addEventListener("click", nextQuestion);
+
+      var tables = document.querySelectorAll("#list li");
+      tables.forEach(function (table) {
+        table.addEventListener("click", function () {
+          var otherItems = document.querySelectorAll("#list li");
+          otherItems.forEach(function (item) {
+            item.classList.remove("selected");
+          });
+          table.classList.add("selected");
+        });
+      });
+
+      document.getElementById("showListButton").addEventListener("click", function () {
+        let list = document.getElementById("list");
+        list.innerHTML = "";
+        document.getElementById("list").style.display = "block";
+      });
+      
+    </script>
+
+  <!-- JavaScript for popup menu -->
+  <script>
+    let popup = document.getElementById('popup')
+
+    function openPopup() {
+      popup.classList.add('open-popup')
+
+    }
+
+    function closePopup() {
+      popup.classList.remove('open-popup')
+    }
+  </script>
+<script>
+ 
+
+  // Add event listener for the "Back to Question" button
+  document.getElementById("backToQuestion").addEventListener("click", backToQuestion);
+
+  // Define the backToQuestion function
+  function backToQuestion() {
+    // Update the currentQuestionIndex to navigate back
+    currentQuestionIndex = Math.max(0, currentQuestionIndex - 1);
+    // Display the question at the updated index
+    displayQuestion(questions[currentQuestionIndex]);
+    // // Show the "Next Question" button
+    // document.getElementById("nextQuestion").style.display = "block";
+    // // Hide the "Back to Question" button
+    // document.getElementById("backToQuestion").style.display = "none";
+  }
+
+
+  resultbtn.addEventListener('click', function() {
+  // Redirect to result1.html
+  window.location.href = "result1.html";
+});
+
+function back() {
+        window.location.href='rule1.html';
+    }
+
+function resetScore() {
+    const keysToRemove = [];
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key.startsWith("Game1 Table")) {
+            keysToRemove.push(key);
+        }
+    }
+
+    // Remove the collected keys
+    for (const key of keysToRemove) {
+        localStorage.removeItem(key);
+    }
+}
+</script>
+
+<script src="../../moderator/sound.js"></script>
+  </body>
+</html>
